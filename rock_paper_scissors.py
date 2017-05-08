@@ -46,6 +46,7 @@ while choose:
     print("")
 
 def battle():
+  
   # COMPUTER ROCK VS USER ROCK
   if computerMove=="1" and choice=="1":
     print("Computer:",computerHand)
@@ -61,5 +62,33 @@ def battle():
     print("Computer:",computerHand)
     print(player1.name,":",userHand)
     print(computerHand,"beats",userHand)
-
-battle()
+  # COMPUTER PAPER VS USER ROCK
+  elif computerMove=="2" and choice=="1":
+    print("Computer:",computerHand)
+    print(player1.name,":",userHand)
+    print(computerHand,"beats",userHand)
+  # COMPUTER PAPER VS USER PAPER
+  elif computerMove=="2" and choice=="2":
+    print("Computer:",computerHand)
+    print(player1.name,":",userHand)
+    print(computerHand,"v/s",userHand,". Draw.")
+  # COMPUTER PAPER VS USER SCISSORS
+  elif computerMove=="2" and choice=="3":
+    print("Computer:",computerHand)
+    print(player1.name,":",userHand)
+    print(userHand,"beats",computerHand)
+  # COMPUTER SCISSORS VS USER ROCK
+  elif computerMove=="3" and choice=="1":
+    print("Computer:",computerHand)
+    print(player1.name,":",userHand)
+    print(userHand,"beats",computerHand)
+  # COMPUTER SCISSORS VS USER PAPER
+  elif computerMove=="3" and choice=="2":
+    print("Computer:",computerHand)
+    print(player1.name,":",userHand)
+    print(computerHand,"beats",userHand)
+  # COMPUTER SCISSORS VS USER SCISSORS
+  elif computerMove=="3" and choice=="3":
+    print("Computer:",computerHand)
+    print(player1.name,":",userHand)
+    print(computerHand,"v/s",userHand,". Draw.")
