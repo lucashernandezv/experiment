@@ -1,0 +1,32 @@
+ if esf2==0:
+    print("Transpuesto queda ESF",esf2,"() -",cil2,"cil a",eje2,"grados.")
+  elif esf1>cil1:
+    print("Transpuesto queda +",esf2,"() -",cil2,"cil a",eje2,"grados.")
+    print("")
+  elif esf1<cil1:
+    print("Traspuesto queda -",esf2,"() -",cil2,"cil a ",eje2,"grados.")
+    print("")
+    
+
+def displayMenu():
+  print("")
+  print("Transponer")
+  print("1.Esf+ () Cil+ a Esf+ () Cil-")
+  print("2.Esf- () Cil+ a Esf- () Cil-")
+  print("3.Esf+ () Cil- a Esf+ () Cil+")
+  print("4. Salir")
+  
+menu=True
+while menu:
+  displayMenu()
+  choice=input("Elija una opción: ")
+  if choice == "1":
+    transposicion_igualespositivos()
+  elif choice=="2":
+    transposicion_menosmas()
+  elif choice=="3":
+    transposicion_masmenos()
+  elif choice=="4":
+    menu=False
+  else: 
+    print("Ingrese una opción válida.")
