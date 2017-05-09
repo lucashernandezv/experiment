@@ -7,9 +7,12 @@
   esf2=esf1+cil1
   cil2=cil1
   eje2=eje1+90
+  
+  # SI EJE TRANSPUESTO SOBREPASA LOS 180 GRADOS.
   eje3=eje2-180
   print("")
   print("+",esf1,"esf () +",cil1,"cil a",eje1,"grados.")
+  # SI EJE TRANSPUESTO SOBREPASA LOS 180 GRADOS.
   if eje2>180:
     print("Transpuesto queda: +",esf2,"esf () -",cil2,"cil a",eje3,"grados.")
   else:
@@ -24,21 +27,26 @@ def transposicion_masmenos():
   esf2=esf1-cil1
   cil2=cil1
   eje2=eje1+90
+  
+  # SI EJE TRANSPUESTO SOBREPASA LOS 180 GRADOS.
   eje3=eje2-180
   print("")
   print("+",esf1,"esf () -",cil1,"cil a",eje1,"grados.")
+  # SI EJE TRANSPUESTO SOBREPASA LOS 180 GRADOS.
   if esf2==0 and eje2>180:
     print("Transpuesto queda ESF",esf2,"() +",cil2,"cil a",eje3,"grados.")
     print("")
   elif esf2==0:
     print("Transpuesto queda ESF",esf2,"() +",cil2,"cil a",eje2,"grados.")
     print("")
+    # SI EJE TRANSPUESTO SOBREPASA LOS 180 GRADOS.
   elif esf1>cil1 and eje2>180:
     print("Transpuesto queda: +",esf2,"esf () +",cil2,"cil a",eje3,"grados.")
     print("")
   elif esf1>cil1:
     print("Transpuesto queda: +",esf2,"esf () +",cil2,"cil a",eje2,"grados.")
     print("")
+    # SI EJE TRANSPUESTO SOBREPASA LOS 180 GRADOS.
   elif esf1<cil1 and eje2>180:
     print("Transpuesto queda: +",esf2,"esf () +",cil2,"cil a",eje3,"grados.")
     print("")
@@ -54,22 +62,26 @@ def transposicion_menosmas():
   esf2=esf1-cil1
   cil2=cil1
   eje2=eje1+90
+  # SI EJE TRANSPUESTO SOBREPASA LOS 180 GRADOS.
   eje3=eje2-180
   
   print("")
   print("-",esf1,"esf () +",cil1,"cil a",eje1,"grados.")
+  # SI EJE TRANSPUESTO SOBREPASA LOS 180 GRADOS.
   if esf2==0 and eje2>180:
     print("Transpuesto queda ESF",esf2,"() -",cil2,"cil a",eje3,"grados.")
     print("")
   elif esf2==0:
     print("Transpuesto queda ESF",esf2,"() -",cil2,"cil a",eje2,"grados.")
     print("")
+    # SI EJE TRANSPUESTO SOBREPASA LOS 180 GRADOS.
   elif esf1>cil1 and eje2>180:
     print("Transpuesto queda +",esf2,"() -",cil2,"cil a",eje3,"grados.")
     print("")
   elif esf1>cil1:
     print("Transpuesto queda +",esf2,"() -",cil2,"cil a",eje2,"grados.")
     print("")
+    # SI EJE TRANSPUESTO SOBREPASA LOS 180 GRADOS.
   elif esf1<cil1 and eje2>180:
     print("Traspuesto queda -",esf2,"() -",cil2,"cil a ",eje3,"grados.")
   elif esf1<cil1:
