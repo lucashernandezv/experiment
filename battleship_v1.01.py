@@ -1,4 +1,4 @@
-`import random
+import random
 
 name = str.upper(raw_input("Please enter your name:"))
 
@@ -10,6 +10,9 @@ name = str.upper(raw_input("Please enter your name:"))
 def printmap(): ## MAP SIZE 5x5
     i = 0
     j = 0
+    print("(x-axis: horizontal)")
+    print("(y-axis: vertical)")
+    print("")
     print ("  A B C D E") ## X AXIS
  
     while (i<5):
@@ -40,6 +43,7 @@ def computerCreateShip(): ## DETERMINES COMPUTER'S SHIP LOCATION
     ## print ("[COMPUTER SHIP:"),compXShip,compYShip,("]") ##ERASE COMMENT TO PRINT COMPUTER'S SHIP COORDINATES
 
 def win(): ## PRINT OUT THE TRIES COUNTER
+    print("")
     print("You win!")
     if (attackCounter == 1):
         print ("Congratulations,"),str(name),("!")
@@ -65,6 +69,8 @@ def attackShip():
         showx = True
         global newShipX
         while showx:
+            print("")
+            ## INPUT X-AXIS GUESS 
             newShipX = str.lower(raw_input("Type in the X-Axis coordinate: "))
             if (newShipX in xvalues):
                 showx=False ## VALIDATES DATA INPUT
@@ -74,7 +80,9 @@ def attackShip():
         showy = True
         global newShipY
         while showy:
+            # INPUT Y-AXIS GUESS 
             newShipY = str.lower(raw_input("Type in the Y-Axis coordinate: "))
+            print("")
             if (newShipY in yvalues):
                 showy=False ## VALIDATES DATA INPUT
             else:
@@ -82,15 +90,23 @@ def attackShip():
             
         attackCounter = attackCounter + 1 ## INCREASES COUNTER
         
+        ## IF USER GUESS MATCHES COMPUTER'S SHIP LOCATION, THE SHIP IS DESTROYED 
         if (str(newShipY) == str(compYShip)) and (str(newShipX) == str(compXShip)):
-            print ("DESTROYED")
+            print ("----- DESTROYED ENEMY'S SHIP!! -----")
             attack = False
             win()
+            
         elif (str(newShipY) == str(compYShip)):
-            print ("HIT! (Y-Axis)") ## DISPLAYS HIT HINT
+             ## PRINTS LOCATION WHERE ATTACK LANDED 
+            print str("[ATTACK LANDED ON:"), str.upper(newShipX),str(newShipY),str("]") 
+            print ("HIT ON Y-AXIS") ## DISPLAYS HIT HINT
         elif (str(newShipX) == str(compXShip)):
-            print("HIT! (X-Axis)") ## DISPLAYS HIT HINT
+            ## PRINTS LOCATION WHERE ATTACK LANDED 
+            print str("[ATTACK LANDED ON:"), str.upper(newShipX),str(newShipY),str("]")
+            print("HIT ON X-AXIS") ## DISPLAYS HIT HINT
         else:
+            ## PRINTS LOCATION WHERE ATTACK LANDED 
+            print str("[ATTACK LANDED ON:"), str.upper(newShipX),str(newShipY),str("]")
             print ("The attack had no effect.")
             
 ## CALLS FUNCTIONS 
