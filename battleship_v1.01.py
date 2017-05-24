@@ -7,18 +7,18 @@ name = str.upper(raw_input("Please enter your name:"))
     ##userattk = newShipX,newShipY
     ##print userattk
 
-def printmap(): ## MAP SIZE 5x5
+def printmap(): ## CREATES AND DISPLAYS MAP
     i = 0
     j = 0
     print("(x-axis: horizontal)")
     print("(y-axis: vertical)")
     print("")
-    print ("  A B C D E") ## X AXIS
+    print ("  A B C D E") ## X-AXIS
  
-    while (i<5):
-        j = j + 1
-        print j,("0 0 0 0 0") ## Y AXIS
-        i = i + 1
+    while (i<5): ##SETS THE MAP SIZE TO 5X5
+        j = j + 1 ## Y-AXIS NUMBERS
+        print j,("0 0 0 0 0") ## Y-AXIS
+        i = i + 1 ## X-AXIS LETTERS
         
 def computerCreateShip(): ## DETERMINES COMPUTER'S SHIP LOCATION
     
