@@ -1,4 +1,5 @@
 import random
+import sys
 
 name = str.upper(raw_input("Please enter your name:"))
 
@@ -23,9 +24,9 @@ def printmap(): ## CREATES AND DISPLAYS MAP
 def computerCreateShip():
     
     global compYShip
-    compYShip = random.randint(1,5) ## ALLOCATES COMPUTER'S SHIP Y-AXIS. CHANGE RANDOM LIMITS WHEN  INCREASING MAP SIZE
+    compYShip = random.randint(1,5) ## DETERMINES COMPUTER'S SHIP Y-AXIS. CHANGE RANDOM LIMITS WHEN  INCREASING MAP SIZE
     global compX
-    compX = random.randint(1,5)## ALLOCATES COMPUTER'S SHIP X-AXIS. CHANGE RANDOM LIMITS WHEN INCREASING MAP SIZE
+    compX = random.randint(1,5)## DETERMINES COMPUTER'S SHIP X-AXIS. CHANGE RANDOM LIMITS WHEN INCREASING MAP SIZE
     
     global compXShip
     
@@ -113,6 +114,25 @@ def battle(): ## SEPARATED THIS INTO AN INDEPENDENT FUNCTION, TO BE ABLE TO CALL
             ## PRINTS LOCATION WHERE ATTACK LANDED 
             print str("[ATTACK LANDED ON:"), str.upper(newShipX),str(newShipY),str("]")
             print ("The attack had no effect.")
+            
+def win(): ## PRINT OUT THE TRIES COUNTER
+    print("")
+    print("You win!")
+    if (attackCounter == 1):
+        print ("Congratulations,"),str(name),("!")
+        print("You got it right in the first try!")
+    else:
+        print("Congratulations,"),str(name),("!")
+        print("You got it in"),int(attackCounter),("tries.")
+        
+    repeat=(str.lower(raw_input("Do you want to play again?: "))) ##GETS USER CONFIRMATION BEFORE REPLAY
+    print("")
+    if (repeat=="yes") or (repeat=="y"): ## RECALLS GAME FUNCTIONS TO CREATE NEW SHIPS
+        printmap()
+        computerCreateShip()
+        attackShip()
+    elif (repeat=="no") or (repeat=="n"): ## EXITS
+        sys.exit()
             
 ## CALL FUNCTIONS 
 printmap()
