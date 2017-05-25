@@ -20,16 +20,17 @@ def printmap(): ## CREATES AND DISPLAYS MAP
         print j,("0 0 0 0 0") ## Y-AXIS
         i = i + 1 ## X-AXIS LETTERS
         
-def computerCreateShip(): ## DETERMINES COMPUTER'S SHIP LOCATION
+def computerCreateShip():
     
     global compYShip
-    compYShip = random.randint(1,5)
+    compYShip = random.randint(1,5) ## ALLOCATES COMPUTER'S SHIP Y-AXIS. CHANGE RANDOM LIMITS WHEN  INCREASING MAP SIZE
     global compX
-    compX = random.randint(1,5)
+    compX = random.randint(1,5)## ALLOCATES COMPUTER'S SHIP X-AXIS. CHANGE RANDOM LIMITS WHEN INCREASING MAP SIZE
     
     global compXShip
     
-    if compX == 1:
+    ## TRANSLATES X-AXIS NUMBER TO A LETTER. ADD FURTHER IFS WHEN INCREASING MAP SIZE
+    if compX == 1: 
         compXShip = "a"
     elif compX == 2:
         compXShip = "b"
@@ -51,7 +52,7 @@ def win(): ## PRINT OUT THE TRIES COUNTER
     else:
         print("Congratulations,"),str(name),("!")
         print("You got it in"),int(attackCounter),("tries.")
-
+        
 def attackShip():
     
     ## ADD MORE ITEMS IN THE DICTIONARIES TO INCREASE MAP SIZE
@@ -70,7 +71,7 @@ def attackShip():
         global newShipX
         while showx:
             print("")
-            ## INPUT X-AXIS GUESS 
+            ## USER INPUT X-AXIS GUESS 
             newShipX = str.lower(raw_input("Type in the X-Axis coordinate: "))
             if (newShipX in xvalues):
                 showx=False ## VALIDATES DATA INPUT
@@ -80,7 +81,7 @@ def attackShip():
         showy = True
         global newShipY
         while showy:
-            # INPUT Y-AXIS GUESS 
+            # USER INPUT Y-AXIS GUESS 
             newShipY = str.lower(raw_input("Type in the Y-Axis coordinate: "))
             print("")
             if (newShipY in yvalues):
@@ -90,6 +91,10 @@ def attackShip():
             
         attackCounter = attackCounter + 1 ## INCREASES COUNTER
         
+        battle()
+        
+def battle(): ## SEPARATED THIS INTO AN INDEPENDENT FUNCTION, TO BE ABLE TO CALL IT FROM OUTSIDE
+           
         ## IF USER GUESS MATCHES COMPUTER'S SHIP LOCATION, THE SHIP IS DESTROYED 
         if (str(newShipY) == str(compYShip)) and (str(newShipX) == str(compXShip)):
             print ("----- DESTROYED ENEMY'S SHIP!! -----")
@@ -109,7 +114,8 @@ def attackShip():
             print str("[ATTACK LANDED ON:"), str.upper(newShipX),str(newShipY),str("]")
             print ("The attack had no effect.")
             
-## CALLS FUNCTIONS 
+## CALL FUNCTIONS 
 printmap()
 computerCreateShip()
 attackShip()
+
