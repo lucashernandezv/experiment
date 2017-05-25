@@ -1,3 +1,4 @@
+    
 import random
 import sys
 
@@ -9,6 +10,7 @@ name = str.upper(raw_input("Please enter your name:"))
     ##print userattk
 
 def printmap(): ## CREATES AND DISPLAYS MAP
+
     i = 0
     j = 0
     print("(x-axis: horizontal)")
@@ -116,6 +118,9 @@ def battle(): ## SEPARATED THIS INTO AN INDEPENDENT FUNCTION, TO BE ABLE TO CALL
             print ("The attack had no effect.")
             
 def win(): ## PRINT OUT THE TRIES COUNTER
+    
+    gamecounter = 0 ## START REPLAY COUNTER
+    
     print("")
     print("You win!")
     if (attackCounter == 1):
@@ -128,14 +133,25 @@ def win(): ## PRINT OUT THE TRIES COUNTER
     repeat=(str.lower(raw_input("Do you want to play again?: "))) ##GETS USER CONFIRMATION BEFORE REPLAY
     print("")
     if (repeat=="yes") or (repeat=="y"): ## RECALLS GAME FUNCTIONS TO CREATE NEW SHIPS
+    
+        gamecounter = gamecounter + 1 ## REPLAY COUNTER
+        if (gamecounter>1):
+            print str("You've played"),gamecounter,str("time.") 
+        else:
+             print str("You've played one time.")
+            
+        
         printmap()
         computerCreateShip()
         attackShip()
     elif (repeat=="no") or (repeat=="n"): ## EXITS
+        print("Ok, no problem. Goodbye!")
         sys.exit()
             
 ## CALL FUNCTIONS 
 printmap()
 computerCreateShip()
 attackShip()
+
+
 
