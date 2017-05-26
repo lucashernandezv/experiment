@@ -1,4 +1,5 @@
     
+    
 import random
 import sys
 
@@ -10,7 +11,6 @@ name = str.upper(raw_input("Please enter your name:"))
     ##print userattk
 
 def printmap(): ## CREATES AND DISPLAYS MAP
-
     i = 0
     j = 0
     print("(x-axis: horizontal)")
@@ -128,18 +128,24 @@ def win(): ## PRINT OUT THE TRIES COUNTER
         print("Congratulations,"),str(name),("!")
         print("You got it in"),int(attackCounter),("tries.")
     
-    repeat=(str.lower(raw_input("Do you want to play again?: "))) ##GETS USER CONFIRMATION BEFORE REPLAY
-    print("")
-        printmap()
-        computerCreateShip()
-        attackShip()
-    elif (repeat=="no") or (repeat=="n"): ## EXITS
-        print("Ok, no problem. Goodbye!")
-        sys.exit()
+    repeat = True
+    while repeat:
+        repeat=(str.lower(raw_input("Do you want to play again?: "))) ##GETS USER CONFIRMATION BEFORE REPLAY
+        print("")
+        ## NEXT LINES VALIDATE DATA INPUT
+        if (repeat == "yes") or (repeat=="y"):
+            repeat = False
+            play()
+        elif (repeat=="no") or (repeat=="n"): ## EXITS
+            repeat =  False
+            print("Ok, no problem. Goodbye!")
+            sys.exit()
+        else:
+            print("Wrong choice.")
             
-## CALL FUNCTIONS 
-printmap()
-computerCreateShip()
-attackShip()
-
-
+def play(): ## SEPARATED THIS INTO AN INDEPENT FUNCTION
+    printmap()
+    computerCreateShip()
+    attackShip()
+    
+play()
